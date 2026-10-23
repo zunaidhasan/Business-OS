@@ -39,48 +39,49 @@ export function LandingNav() {
       className={cn(
         "sticky top-0 z-50 border-b transition-all duration-200",
         scrolled
-          ? "border-white/10 bg-slate-950/90 shadow-lg shadow-black/10 backdrop-blur-xl"
-          : "border-transparent bg-slate-950/30 backdrop-blur-sm",
+          ? "border-white/10 bg-slate-950/95 shadow-lg shadow-black/10 backdrop-blur-xl"
+          : "border-transparent bg-slate-950/45 backdrop-blur-md",
       )}
     >
-      <div className="mx-auto flex h-16 max-w-7xl items-center gap-6 px-5 sm:px-8">
-        <Link href="/" aria-label="Corevo Business OS home" className="flex shrink-0 items-center gap-2.5 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-300 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950">
-          <span className="grid h-9 w-9 place-items-center rounded-xl bg-gradient-to-br from-indigo-500 to-violet-600 text-sm font-black text-white shadow-lg shadow-indigo-900/40">
+      <div className="mx-auto flex h-[72px] max-w-7xl items-center gap-5 px-5 sm:px-8">
+        <Link href="/" aria-label="Corevo Business OS home" className="flex shrink-0 items-center gap-3 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-300 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950">
+          <span className="grid h-10 w-10 place-items-center rounded-xl bg-gradient-to-br from-indigo-400 to-violet-600 text-sm font-black text-white shadow-lg shadow-indigo-900/40 ring-1 ring-white/15">
             C
           </span>
-          <span className="text-base font-bold tracking-tight text-white">
-            Corevo<span className="ml-1.5 text-xs font-medium text-slate-400">Business OS</span>
+          <span className="flex flex-col leading-none">
+            <span className="text-base font-bold tracking-tight text-white">Corevo</span>
+            <span className="mt-1.5 text-[9px] font-semibold uppercase tracking-[0.16em] text-slate-400">Business OS</span>
           </span>
         </Link>
 
-        <nav aria-label="Main navigation" className="ml-2 hidden items-center gap-1 lg:flex">
+        <nav aria-label="Main navigation" className="ml-1 hidden items-center gap-0.5 rounded-xl border border-white/10 bg-white/[0.04] p-1 lg:flex">
           {LINKS.map((l) => (
             <a
               key={l.href}
               href={l.href}
-              className="rounded-lg px-3 py-2 text-sm font-medium text-slate-300 transition hover:bg-white/5 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-300"
+              className="rounded-lg px-3 py-2 text-[13px] font-medium text-slate-300 transition hover:bg-white/[0.08] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-300"
             >
               {l.label}
             </a>
           ))}
         </nav>
 
-        <div className="ml-auto hidden items-center gap-2 lg:flex">
+        <div className="ml-auto hidden items-center gap-1.5 lg:flex">
           <Link
             href="/login"
-            className="rounded-xl px-3.5 py-2 text-sm font-semibold text-slate-200 transition hover:bg-white/5 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-300"
+            className="rounded-lg px-3 py-2 text-[13px] font-semibold text-slate-300 transition hover:bg-white/5 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-300"
           >
-            Client login
+            Sign in
           </Link>
           <Link
             href="/dashboard"
-            className="rounded-xl px-3.5 py-2 text-sm font-semibold text-slate-200 transition hover:bg-white/5 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-300"
+            className="rounded-lg border border-white/15 px-3 py-2 text-[13px] font-semibold text-white transition hover:border-white/30 hover:bg-white/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-300"
           >
             Live demo
           </Link>
           <a
             href="#demo"
-            className="rounded-xl bg-white px-4 py-2 text-sm font-semibold text-slate-900 shadow-sm transition hover:bg-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-300 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
+            className="ml-1 rounded-lg bg-white px-4 py-2.5 text-[13px] font-bold text-slate-950 shadow-sm transition hover:bg-indigo-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-300 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
           >
             Book a demo
           </a>
@@ -99,8 +100,7 @@ export function LandingNav() {
         </button>
       </div>
 
-      {open ? (
-        <nav id="mobile-navigation" aria-label="Mobile navigation" className="border-t border-white/10 bg-slate-950/95 px-5 pb-5 pt-3 lg:hidden">
+      <nav id="mobile-navigation" aria-label="Mobile navigation" hidden={!open} className="border-t border-white/10 bg-slate-950/95 px-5 pb-5 pt-3 lg:hidden">
           <div className="grid gap-1">
             {LINKS.map((l) => (
               <a
@@ -113,31 +113,30 @@ export function LandingNav() {
               </a>
             ))}
           </div>
-          <div className="mt-3 grid gap-2">
+          <div className="mt-3 grid gap-2 sm:grid-cols-2">
             <Link
               href="/login"
               onClick={() => setOpen(false)}
-              className="rounded-xl border border-white/15 px-4 py-2.5 text-center text-sm font-semibold text-white transition hover:bg-white/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-300"
+              className="rounded-lg border border-white/15 px-4 py-3 text-center text-sm font-semibold text-white transition hover:bg-white/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-300"
             >
-              Client login
+              Sign in
+            </Link>
+            <Link
+              href="/dashboard"
+              onClick={() => setOpen(false)}
+              className="rounded-lg border border-white/15 px-4 py-3 text-center text-sm font-semibold text-white transition hover:bg-white/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-300"
+            >
+              Live demo <span aria-hidden="true">→</span>
             </Link>
             <a
               href="#demo"
               onClick={() => setOpen(false)}
-              className="rounded-xl bg-white px-4 py-2.5 text-center text-sm font-semibold text-slate-900 transition hover:bg-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-300 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
+              className="rounded-lg bg-white px-4 py-3 text-center text-sm font-bold text-slate-950 transition hover:bg-indigo-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-300 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 sm:col-span-2"
             >
               Book a demo
             </a>
-            <Link
-              href="/dashboard"
-              onClick={() => setOpen(false)}
-              className="rounded-xl px-4 py-2 text-center text-xs font-semibold text-indigo-200 transition hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-300"
-            >
-              or explore the live demo →
-            </Link>
           </div>
-        </nav>
-      ) : null}
+      </nav>
     </header>
   );
 }
