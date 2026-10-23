@@ -1,0 +1,3 @@
+module.exports=[27572,a=>{"use strict";var b=a.i(7997);a.s(["default",0,function({children:a}){return(0,b.jsx)("html",{lang:"en",children:(0,b.jsx)("body",{className:"bg-slate-100 text-slate-900 antialiased",children:a})})},"metadata",0,{title:{default:"Corevo — Business Operating System",template:"%s · Corevo Business OS"},description:"Corevo unifies lead management, sales pipeline, KYC compliance and daily operations into one business operating system. Explore the live demo."}])},50645,a=>{a.n(a.i(27572))}];
+
+//# sourceMappingURL=src_app_layout_tsx_0fhx__n._.js.map
